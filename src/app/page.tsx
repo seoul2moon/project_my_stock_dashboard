@@ -6,6 +6,7 @@ import { usePortfolioStore } from "@/store/portfolio-store";
 import { WatchlistTable } from "@/components/watchlist/watchlist-table";
 import { PnlSummaryCard } from "@/components/portfolio/pnl-summary-card";
 import { Card, CardContent } from "@/components/ui/card";
+import { FearGreedCard } from "@/components/fear-greed/fear-greed-card";
 import { useQuotes } from "@/hooks/use-quotes";
 import { useHasMounted } from "@/hooks/use-has-mounted";
 import { calcHoldingsPnl, calcTotalsByCurrency } from "@/lib/portfolio-calc";
@@ -23,6 +24,13 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-8">
+      <section>
+        <h2 className="mb-3 text-lg font-semibold">시장 심리</h2>
+        <div className="max-w-sm">
+          <FearGreedCard />
+        </div>
+      </section>
+
       <section>
         <h2 className="mb-3 text-lg font-semibold">포트폴리오 요약</h2>
         <PnlSummaryCard totals={totals} />

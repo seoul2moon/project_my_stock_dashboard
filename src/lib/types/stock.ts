@@ -52,3 +52,20 @@ export interface Holding extends StockRef {
   avgPrice: number;
   createdAt: string;
 }
+
+export type FearGreedRating =
+  | "extreme fear"
+  | "fear"
+  | "neutral"
+  | "greed"
+  | "extreme greed";
+
+export interface FearGreedIndex {
+  score: number;
+  rating: FearGreedRating;
+  timestamp: string;
+  previousClose: number;
+  previousWeek: number;
+  previousMonth: number;
+  previousYear: number;
+}
