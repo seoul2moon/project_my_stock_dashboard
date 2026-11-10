@@ -24,3 +24,18 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* 배터리 공급망 지도: 선택된 경로의 흐름 애니메이션 */
+@keyframes battery-flow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+.battery-flow {
+  animation: battery-flow 0.9s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .battery-flow {
+    animation: none;
+  }
+}
