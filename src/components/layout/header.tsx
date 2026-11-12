@@ -10,6 +10,7 @@ const NAV_ITEMS = [
   { href: "/", label: "대시보드" },
   { href: "/watchlist", label: "관심종목" },
   { href: "/portfolio", label: "포트폴리오" },
+  { href: "/short-reports", label: "공매도 리포트" },
 ];
 
 export function Header() {
