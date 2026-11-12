@@ -14,7 +14,7 @@ export interface ShortReport {
   firm: string;
   ticker: string;
   company: string;
-  date: string; // YYYY-MM-DD
+  date: string; // YYYY-MM-DD (일자를 확인하지 못한 경우 YYYY-MM)
   title: string;
   reportUrl?: string;
   reportUrlNote?: string;
@@ -90,6 +90,24 @@ export const FIRMS: FirmInfo[] = [
     founder: "-",
     note: "중소형 기술·바이오주 위주. 2026년 5월 엔비디아 중국 우회판매 리포트 발표.",
     url: "https://culperresearch.com/",
+  },
+  {
+    name: "Spruce Point Capital",
+    founder: "Ben Axler",
+    note: "대형·중형주 대상 장문 리포트. 주가 하락은 자주 맞지만 회계부정이 공식 입증된 사례는 드묾.",
+    url: "https://www.sprucepointcap.com/research",
+  },
+  {
+    name: "Kerrisdale Capital",
+    founder: "Sahm Adrangi",
+    note: "고평가 테마주(수소·양자·원전) 밸류에이션 숏 위주. 테마 랠리에 역으로 당한 사례도 있음.",
+    url: "https://www.kerrisdalecap.com/",
+  },
+  {
+    name: "Gotham City Research",
+    founder: "Daniel Yu",
+    note: "스페인 Gowex(파산) 폭로로 유명. 미국에선 Tile Shop, Carvana 특수관계 거래 지적.",
+    url: "https://www.gothamcityresearch.com/",
   },
 ];
 
@@ -264,13 +282,13 @@ export const REPORTS: ShortReport[] = [
     company: "Valeant Pharmaceuticals (현 Bausch Health)",
     date: "2015-10-21",
     title: "Valeant: Could This Be the Pharmaceutical Enron?",
-    reportUrlNote: "원문 링크 미확인. 링크는 당시 보도.",
-    reportUrl: "https://www.biospace.com/valeant-plunges-after-bearish-report-likens-it-to-b-enron-b",
+    reportUrl: "https://citronresearch.com/wp-content/uploads/2015/10/Valeant-Philador-and-RandO-final-a.pdf",
     claims: "숨겨진 특수약국 Philidor를 통해 가짜 송장으로 매출을 부풀리는 채널 스터핑을 한다고 주장.",
     outcome:
       "Valeant가 Philidor와의 관계를 끊고 Philidor는 폐업. 관련 임원들이 형사 유죄, 회사는 2020년 SEC에 4,500만 달러 합의금. 주가 90% 이상 폭락.",
     verdict: "hit",
     evidence: [
+      { label: "BioSpace: 발표 당시 보도", url: "https://www.biospace.com/valeant-plunges-after-bearish-report-likens-it-to-b-enron-b" },
       {
         label: "BioSpace: Philidor 관계 정리",
         url: "https://www.biospace.com/valeant-severs-ties-with-controversial-specialty-pharmacy-b-philidor-b-which-plans-to-shutter-its-doors",
@@ -337,6 +355,151 @@ export const REPORTS: ShortReport[] = [
       },
     ],
   },
+  {
+    id: "spruce-geni",
+    firm: "Spruce Point Capital",
+    ticker: "GENI",
+    company: "Genius Sports",
+    date: "2021-08-05",
+    title: "Genius Sports Limited: Strong Sell",
+    reportUrl: "https://www.sprucepointcap.com/research/genius-sports-limited",
+    claims: "경쟁사도 제공하는 스포츠 데이터를 중개할 뿐인 SPAC 상장사로, 성장성과 재무가 과장됐다며 60~80% 하락 가능성 제시.",
+    outcome: "2021년 말까지 주가 약 52% 하락. 다만 회계부정 등 규제기관 조치는 없었음.",
+    verdict: "partial",
+    evidence: [
+      {
+        label: "Institutional Investor: 2021년 성과",
+        url: "https://www.institutionalinvestor.com/article/2bsto5bufgzha3htbasxs/portfolio/short-activist-spruce-point-soars-in-turbulent-year-for-short-sellers",
+      },
+    ],
+  },
+  {
+    id: "spruce-nvei",
+    firm: "Spruce Point Capital",
+    ticker: "NVEI",
+    company: "Nuvei",
+    date: "2021-12-08",
+    title: "Nuvei Corp.: Strong Sell",
+    reportUrl: "https://www.sprucepointcap.com/research/nuvei-corp",
+    claims: "경영진의 의심스러운 사업 관행과 고위험 가맹점 의존을 지적하며 40~60% 하락 가능성 제시.",
+    outcome: "발표 당일 주가 36% 급락, 이후 고점 대비 약 75% 하락. 부정행위가 공식 입증되지는 않았고, 2024년 사모펀드에 인수돼 상장폐지.",
+    verdict: "partial",
+    evidence: [
+      {
+        label: "Benzinga: 발표 당시 반응",
+        url: "https://www.benzinga.com/analyst-ratings/analyst-color/21/12/24509729/citron-buys-the-dip-in-nuvei-says-no-proof-of-fraud-in-new-short-seller-report",
+      },
+    ],
+  },
+  {
+    id: "spruce-gnrc",
+    firm: "Spruce Point Capital",
+    ticker: "GNRC",
+    company: "Generac",
+    date: "2022-06",
+    title: "Generac Holdings, Inc.: Strong Sell",
+    reportUrl: "https://www.sprucepointcap.com/research/generac-holdings-inc",
+    claims: "가정용 발전기 수요가 일시적이고 클린에너지 인수 전략이 부실하다며 40~50% 하락 가능성 제시.",
+    outcome: "이후 1년간 주가가 크게 하락했지만 회계 문제는 확인되지 않음. 순수 밸류에이션·업황 숏.",
+    verdict: "partial",
+  },
+  {
+    id: "kerrisdale-plug",
+    firm: "Kerrisdale Capital",
+    ticker: "PLUG",
+    company: "Plug Power",
+    date: "2021-01",
+    title: "Plug Power, Inc. (PLUG)",
+    reportUrl: "https://www.kerrisdalecap.com/wp-content/uploads/2021/01/Plug-Power-Inc.-PLUG.pdf",
+    claims: "수소 테마로 주가가 실적과 동떨어지게 부풀려졌다는 밸류에이션 숏.",
+    outcome: "2021년 1월 고점 이후 주가가 장기적으로 90% 이상 하락. 2021년 회계 정정(재작성)도 발생.",
+    verdict: "hit",
+  },
+  {
+    id: "kerrisdale-ionq",
+    firm: "Kerrisdale Capital",
+    ticker: "IONQ",
+    company: "IonQ",
+    date: "2025-03-13",
+    title: "IonQ, Inc. (IONQ)",
+    reportUrl: "https://www.kerrisdalecap.com/wp-content/uploads/2025/03/IonQ-%E2%80%93-Kerrisdale.pdf",
+    claims: "양자컴퓨터 확장 로드맵이 비현실적이고, 2026년 예상 매출의 40배라는 밸류에이션이 터무니없다고 주장.",
+    outcome: "발표 당일 약 4% 하락(약 21달러). 2026년 11월 주가는 약 35달러로 발표 시점보다 높음.",
+    verdict: "miss",
+    evidence: [
+      {
+        label: "Benzinga: 발표 당시 반응",
+        url: "https://www.benzinga.com/trading-ideas/movers/25/03/44307671/is-high-flying-ionq-stock-a-disaster-in-the-making-shares-slide-as-short-seller-raises-red-flags",
+      },
+    ],
+  },
+  {
+    id: "kerrisdale-qbts",
+    firm: "Kerrisdale Capital",
+    ticker: "QBTS",
+    company: "D-Wave Quantum",
+    date: "2025-04",
+    title: "D-Wave Quantum Inc (QBTS) - Past-Gen Computing",
+    reportUrl: "https://www.kerrisdalecap.com/wp-content/uploads/2025/04/Dwave-Kerrisdale.pdf",
+    claims: "어닐링 방식은 한물간 기술이고 밸류에이션이 과도하다고 주장.",
+    outcome: "발표 당일 7.03달러. 2026년 들어 약 60% 하락했지만 11월 주가 약 10.5달러로 여전히 발표 시점보다 높음.",
+    verdict: "miss",
+    evidence: [
+      {
+        label: "24/7 Wall St. (2026.11)",
+        url: "https://247wallst.com/investing/2026/11/11/d-wave-quantum-crashed-60-in-2026-but-this-major-investment-bank-expects-shares-to-quadruple/",
+      },
+    ],
+  },
+  {
+    id: "kerrisdale-afrm",
+    firm: "Kerrisdale Capital",
+    ticker: "AFRM",
+    company: "Affirm Holdings",
+    date: "2026-01",
+    title: "Affirm Holdings, Inc. (AFRM)",
+    reportUrl: "https://www.kerrisdalecap.com/wp-content/uploads/2026/01/Affirm-Kerrisdale.pdf",
+    claims: "BNPL(선구매 후결제) 대출이 사실상 서브프라임 성격이라며 적정가 17달러(약 80% 하락) 제시.",
+    outcome: "결론이 나지 않음.",
+    verdict: "ongoing",
+  },
+  {
+    id: "gotham-tts",
+    firm: "Gotham City Research",
+    ticker: "TTS",
+    company: "Tile Shop Holdings",
+    date: "2013-11-14",
+    title: "The Tile Shop: Like Crazy Eddie's, But With An Undisclosed Related Party and A Chinese Twist",
+    reportUrl:
+      "https://www.gothamcityresearch.com/post/2013/11/14/the-tile-shop-like-crazy-eddie-s-but-with-an-undisclosed-related-party-and-a-chinese-twis",
+    claims: "최대 공급사가 CEO 처남이 몰래 지배하는 특수관계사이며, 이익이 200% 이상 부풀려졌다고 주장.",
+    outcome:
+      "발표 당일 주가 39% 폭락. 회사가 미공시 관계를 인정하고 해당 공급사와 거래를 끊었지만, 내부 조사에서 이익 과장은 대체로 부인.",
+    verdict: "partial",
+    evidence: [
+      { label: "Star Tribune: 주가 급락", url: "https://www.startribune.com/tile-shop-shares-dive-on-investor-s-accusations/231963121/" },
+      { label: "Motley Fool: 내부 조사 결과", url: "https://www.fool.com/investing/general/2014/01/29/tile-shop-holdings-largely-exonerates-itself.aspx" },
+    ],
+  },
+  {
+    id: "gotham-cvna",
+    firm: "Gotham City Research",
+    ticker: "CVNA",
+    company: "Carvana",
+    date: "2026-01-28",
+    title: "Carvana: Bridgecrest and the Undisclosed Transactions and Debts",
+    reportUrl: "https://www.gothamcityresearch.com/post/carvana-bridgecrest-and-the-undisclosed-transactions-and-debts",
+    claims:
+      "CEO 부친 소유 DriveTime·Bridgecrest에 대출채권을 비싸게 넘겨 이익을 약 10억 달러 부풀렸다고 주장(정보공개청구로 얻은 감사보고서 근거).",
+    outcome: "발표 당일 약 15% 하락(종가 410달러) 후 일부 반등. 애널리스트 다수는 매수 의견 유지. 결론이 나지 않음.",
+    verdict: "ongoing",
+    evidence: [
+      {
+        label: "Benzinga: 발표 당시 반응",
+        url: "https://www.benzinga.com/trading-ideas/movers/26/01/50202312/carvana-stock-dives-following-gotham-city-short-report",
+      },
+    ],
+  },
 ];
 
 export interface FirmStats extends FirmInfo {
@@ -366,5 +529,8 @@ export function calcFirmStats(reports: ShortReport[] = REPORTS): FirmStats[] {
       rawRate: resolved.length ? sum / resolved.length : null,
       adjustedScore: (sum + 1) / (resolved.length + 2),
     };
-  }).sort((a, b) => b.adjustedScore - a.adjustedScore || b.resolved - a.resolved);
+  }).sort(
+    (a, b) =>
+      Number(b.resolved > 0) - Number(a.resolved > 0) || b.adjustedScore - a.adjustedScore || b.resolved - a.resolved
+  );
 }

@@ -34,6 +34,10 @@ export default function ShortReportsPage() {
         <p className="mt-1 text-sm text-neutral-500">
           미국 상장사를 대상으로 한 행동주의 공매도 리포트를 모았어요. 리서치 회사는 적중률 순으로 정렬돼 있어요.
         </p>
+        <p className="mt-1 text-xs text-neutral-500">
+          공매도 리포트는 주가에 영향을 주려고 공개하는 자료라서 모두 무료예요. &quot;리포트 보기&quot;를 누르면 각 회사
+          사이트의 원문(PDF 또는 웹페이지)이 열려요. 일부 사이트는 처음 들어갈 때 면책 조항 동의를 요구할 수 있어요.
+        </p>
       </div>
 
       <section>
@@ -79,7 +83,9 @@ export default function ShortReportsPage() {
               </tbody>
             </table>
             <p className="mt-3 text-xs leading-relaxed text-neutral-500">
-              적중 1점, 부분 적중 0.5점, 미적중 0점이에요. &quot;진행 중&quot;인 리포트는 점수에서 빼요. 보정 점수는
+              판정 기준: 사기·회계부정이 자백, 규제기관 조치, 상장폐지로 입증되거나 밸류에이션 숏 이후 주가가 장기간 크게
+              떨어지면 &quot;적중&quot;이에요. 주가는 떨어졌지만 핵심 주장이 입증되지 않았으면 &quot;부분 적중&quot;, 아무 조치가 없고 주가가
+              발표 시점보다 높으면 &quot;미적중&quot;이에요. 점수는 적중 1점, 부분 적중 0.5점, 미적중 0점이에요. &quot;진행 중&quot;인 리포트는 점수에서 빼요. 보정 점수는
               (점수 합 + 1) ÷ (판정된 리포트 수 + 2)로 계산해서, 리포트가 1~2개뿐인 회사가 100%로 1위가 되는 것을 막아요.
               이 페이지에 모은 리포트만 기준으로 한 점수라서 공식 통계가 아니에요. 유명한 적중 사례 위주로 모았기 때문에
               실제 적중률보다 높게 나올 수 있어요.
